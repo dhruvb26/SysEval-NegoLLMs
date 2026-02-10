@@ -3,7 +3,7 @@ OpenAI models - GPT and variants.
 """
 
 
-import openai
+from openai import OpenAI
 import os
 from tqdm import tqdm
 from models.model import BaseModelHandler
@@ -13,15 +13,11 @@ import numpy as np
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
-openai.api_key = openai_api_key
-
 class OpenAIHandler(BaseModelHandler):
     """Handler for the OpenAI model."""
 
     multishot = False
     cot=False
-
-    possible_models = ["gpt-3.5-turbo-0301", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-4-1106-preview"]
 
     token_limit = 4096
 
@@ -29,7 +25,25 @@ class OpenAIHandler(BaseModelHandler):
         """Setup the model."""
 
         self.model = self.args.openai_model_str
+        self.client = OpenAI(api_key=openai_api_key)
 
+    def clean_prompt(self, prompt):
+        """
+        Remove invalid Unicode characters (surrogates and other problematic chars) from prompt.
+        This handles encoding errors that can occur with corrupted dataset text.
+        """
+        if not isinstance(prompt, str):
+            return prompt
+        
+        # Encode to UTF-8 with error handling, then decode back
+        # This removes surrogate characters and other invalid Unicode
+        try:
+            cleaned = prompt.encode('utf-8', errors='ignore').decode('utf-8', errors='ignore')
+            return cleaned
+        except Exception as e:
+            print(f"Warning: Failed to clean prompt: {e}")
+            return prompt
+    
     def check_prompt(self, prompt):
         """
         Checks whether the number of tokens in the prompt violates the token limit of a
@@ -86,75 +100,82 @@ class OpenAIHandler(BaseModelHandler):
 
         outputs = {}
 
-        if self.model in self.possible_models:
-            if self.multishot:
-                ex_prompt = inputs[0]
-                sec_ex_prompt = inputs[1]
+        if self.multishot:
+            ex_prompt = inputs[0]
+            sec_ex_prompt = inputs[1]
 
-                if type(ground_truth[0]) == str:
-                    ex_ans = ground_truth[0]
+            if type(ground_truth[0]) == str:
+                ex_ans = ground_truth[0]
+            else:
+                ex_ans = str(ground_truth[0])
+
+            if type(ground_truth[1]) == str:
+                sec_ex_ans = ground_truth[1]
+            else:
+                sec_ex_ans = str(ground_truth[1])
+
+            for index in range(2, len(inputs)):
+                prompt = "User:\n" + ex_prompt + "\n\nAssistant: " + ex_ans + "\n\nUser:\n" + sec_ex_prompt + "\n\nAssistant: " + sec_ex_ans + "\n\nUser:\n" + inputs[index] + "\n\nAssistant:"
+
+                # Clean prompt to remove invalid Unicode characters
+                prompt = self.clean_prompt(prompt)
+                
+                assert self.check_prompt(prompt)
+
+                gen_output = self.client.chat.completions.create(
+                    model = self.model,
+                    messages = [{"role": "user", "content": prompt}],
+                    temperature = 0
+                )
+
+                output_text = gen_output.choices[0].message.content
+                outputs[prompt] = output_text
+        else:
+            for index in tqdm(range(len(inputs))):
+
+                if self.args.num_multishot == 0:
+                    prompt = "User:\n" + inputs[index] + "\n\nAssistant:"
                 else:
-                    ex_ans = str(ground_truth[0])
-
-                if type(ground_truth[1]) == str:
-                    sec_ex_ans = ground_truth[1]
-                else:
-                    sec_ex_ans = str(ground_truth[1])
-
-                for index in range(2, len(inputs)):
+                    assert self.args.num_multishot == 2
+                    ex_prompt, ex_ans, sec_ex_prompt, sec_ex_ans = self.get_multishot_exs(inputs, ground_truth, index)
                     prompt = "User:\n" + ex_prompt + "\n\nAssistant: " + ex_ans + "\n\nUser:\n" + sec_ex_prompt + "\n\nAssistant: " + sec_ex_ans + "\n\nUser:\n" + inputs[index] + "\n\nAssistant:"
 
-                    assert self.check_prompt(prompt)
+                    if index <= 2:
+                        try:
+                            print(f"Prompt at {index}: {prompt}")
+                        except:
+                            # print error
+                            print(f"Error printing prompt at {index}.")
+                            continue
 
-                    gen_output = openai.ChatCompletion.create(
+                outputs[inputs[index]] = "looks good."
+
+                try:
+                    # Clean prompt to remove invalid Unicode characters
+                    prompt = self.clean_prompt(prompt)
+                    
+                    a, b = self.check_prompt(prompt)
+                    if not a:
+                        print(f"Length issue at {index}/{len(inputs)}: {b} > {self.token_limit}")
+                        continue
+
+                    # outputs[inputs[index]] = "looks good"
+
+                    gen_output = self.client.chat.completions.create(
                         model = self.model,
                         messages = [{"role": "user", "content": prompt}],
                         temperature = 0
                     )
 
-                    output_text = gen_output["choices"][0]["message"]["content"]
-                    outputs[prompt] = output_text
-            else:
-                for index in tqdm(range(len(inputs))):
+                    output_text = gen_output.choices[0].message.content
+                    outputs[inputs[index]] = output_text
+                except Exception as e:
+                    print(f"Some error here: {e}")
+                    import traceback
+                    traceback.print_exc()
+                    continue
 
-                    if self.args.num_multishot == 0:
-                        prompt = "User:\n" + inputs[index] + "\n\nAssistant:"
-                    else:
-                        assert self.args.num_multishot == 2
-                        ex_prompt, ex_ans, sec_ex_prompt, sec_ex_ans = self.get_multishot_exs(inputs, ground_truth, index)
-                        prompt = "User:\n" + ex_prompt + "\n\nAssistant: " + ex_ans + "\n\nUser:\n" + sec_ex_prompt + "\n\nAssistant: " + sec_ex_ans + "\n\nUser:\n" + inputs[index] + "\n\nAssistant:"
-
-                        if index <= 2:
-                            try:
-                                print(f"Prompt at {index}: {prompt}")
-                            except:
-                                # print error
-                                print(f"Error printing prompt at {index}.")
-                                continue
-
-                    outputs[inputs[index]] = "looks good."
-
-                    try:
-                        a, b = self.check_prompt(prompt)
-                        if not a:
-                            print(f"Length issue at {index}/{len(inputs)}: {b} > {self.token_limit}")
-                            continue
-
-                        # outputs[inputs[index]] = "looks good"
-
-                        gen_output = openai.ChatCompletion.create(
-                            model = self.model,
-                            messages = [{"role": "user", "content": prompt}],
-                            temperature = 0
-                        )
-
-                        output_text = gen_output["choices"][0]["message"]["content"]
-                        outputs[inputs[index]] = output_text
-                    except Exception as e:
-                        print(f"Some error here: {e}")
-                        continue
-
-                    if (index + 1) >= self.args.max_num_instances:
-                        break
+                if (index + 1) >= self.args.max_num_instances:
+                    break
 
         return outputs
