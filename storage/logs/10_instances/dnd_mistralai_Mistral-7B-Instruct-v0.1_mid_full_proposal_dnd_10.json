@@ -1,0 +1,135 @@
+{
+    "stats": {
+        "total": 10,
+        "unique": 10,
+        "valid": 10
+    },
+    "ground truth": [
+        {
+            "books": 0,
+            "hats": 1,
+            "balls": 2
+        },
+        {
+            "books": 3,
+            "hats": 1,
+            "balls": 2
+        },
+        {
+            "books": 3,
+            "hats": 1,
+            "balls": 0
+        },
+        {
+            "books": 2,
+            "hats": 0,
+            "balls": 0
+        },
+        {
+            "books": 1,
+            "hats": 0,
+            "balls": 2
+        },
+        {
+            "books": 1,
+            "hats": 0,
+            "balls": 1
+        },
+        {
+            "books": 1,
+            "hats": 0,
+            "balls": 0
+        },
+        {
+            "books": 1,
+            "hats": 0,
+            "balls": 0
+        },
+        {
+            "books": 0,
+            "hats": 2,
+            "balls": 0
+        },
+        {
+            "books": 1,
+            "hats": 2,
+            "balls": 0
+        }
+    ],
+    "predictions": [
+        {
+            "books": "0",
+            "hats": "1",
+            "balls": "1"
+        },
+        {
+            "books": "0",
+            "hats": "1",
+            "balls": "1"
+        },
+        {
+            "books": "1",
+            "hats": "1",
+            "balls": "0"
+        },
+        {
+            "books": "2",
+            "hats": "0",
+            "balls": "0"
+        },
+        {
+            "books": "1",
+            "hats": "2",
+            "balls": "3"
+        },
+        {
+            "books": "1",
+            "hats": "0",
+            "balls": "1"
+        },
+        {
+            "books": "1",
+            "hats": "1",
+            "balls": "1"
+        },
+        {
+            "books": "1",
+            "hats": "0",
+            "balls": "0"
+        },
+        {
+            "books": "0",
+            "hats": "2",
+            "balls": "0"
+        },
+        {
+            "books": "1",
+            "hats": "2",
+            "balls": "1"
+        }
+    ],
+    "prompts": [
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 3\nHats: 1\nBalls: 2\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 1 points\nEach Hat: 5 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: i'll take the hat and balls if you want the books\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 3\nHats: 1\nBalls: 2\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 0 points\nEach Hat: 4 points\nEach Ball: 3 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nTHEM: books are 0 for me . i can 1 hat and 1 ball or just 2 balls .\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 3\nHats: 1\nBalls: 2\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 1 points\nEach Hat: 5 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: i'll take books and hat\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 2\nHats: 1\nBalls: 3\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 5 points\nEach Hat: 0 points\nEach Ball: 0 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: i'll take the books , you can keep the rest\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 2\nBalls: 3\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 5 points\nEach Hat: 1 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nTHEM: i'll take the book and 2 balls . you can have the hats and 1 ball .\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 2\nBalls: 3\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 5 points\nEach Hat: 1 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: cna i have the book and 1 ball ? you can have the rest .\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 2\nBalls: 3\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 5 points\nEach Hat: 1 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nTHEM: no i have to have the book and at least one of the other items .\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 2\nBalls: 3\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 5 points\nEach Hat: 1 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: the book has high value for me . so i'll take the book & you can have the rest .\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 3\nBalls: 1\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 3 points\nEach Hat: 1 points\nEach Ball: 4 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: i can offer 2 hats\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 3\nBalls: 1\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 2 points\nEach Hat: 2 points\nEach Ball: 2 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nTHEM: yeah that wont work for me . how about i get 2 hats and the book and you can have the ball and 1 hat\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess."
+    ],
+    "outputs_dict": {
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 3\nHats: 1\nBalls: 2\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 1 points\nEach Hat: 5 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: i'll take the hat and balls if you want the books\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.": "<answer>\n{\n\"books\": 0,\n\"hats\": 1,\n\"balls\": 1\n}\n</answer>\n\nThe speaker is willing to take the hat and balls, so they get 1 point for the hat and 1 point for the balls. They do not want the books, so they get 0 points for the books.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 3\nHats: 1\nBalls: 2\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 0 points\nEach Hat: 4 points\nEach Ball: 3 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nTHEM: books are 0 for me . i can 1 hat and 1 ball or just 2 balls .\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.": "<answer>\n{\n\"books\": 0,\n\"hats\": 1,\n\"balls\": 1\n}\n</answer>",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 3\nHats: 1\nBalls: 2\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 1 points\nEach Hat: 5 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: i'll take books and hat\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.": "<answer>\n{\n\"books\": 1,\n\"hats\": 1,\n\"balls\": 0\n}\n</answer>\n\nThe speaker gets 1 book and 1 hat for each issue in the proposal. There is no mention of any balls in the proposal, so the speaker gets 0 balls.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 2\nHats: 1\nBalls: 3\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 5 points\nEach Hat: 0 points\nEach Ball: 0 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: i'll take the books , you can keep the rest\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.": "<answer>\n{\n\"books\": 2,\n\"hats\": 0,\n\"balls\": 0\n}\n</answer>",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 2\nBalls: 3\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 5 points\nEach Hat: 1 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nTHEM: i'll take the book and 2 balls . you can have the hats and 1 ball .\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.": "<answer>\n{\n\"books\": 1,\n\"hats\": 2,\n\"balls\": 3\n}\n</answer>",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 2\nBalls: 3\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 5 points\nEach Hat: 1 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: cna i have the book and 1 ball ? you can have the rest .\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.": "<answer>\n{\n\"books\": 1,\n\"hats\": 0,\n\"balls\": 1\n}\n</answer>\n\nThe speaker is proposing to take one book and one ball, leaving the other two balls and all the hats for the partner. So the speaker gets 1 book and 1 ball, and the partner gets 2 balls and all the hats.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 2\nBalls: 3\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 5 points\nEach Hat: 1 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nTHEM: no i have to have the book and at least one of the other items .\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.": "<answer>\n{\n\"books\": 1,\n\"hats\": 1,\n\"balls\": 1\n}\n</answer>\n\nThe speaker is willing to give up one book, one hat, and one ball in exchange for the book. Therefore, the speaker gets 1 item for each issue in the proposal.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 2\nBalls: 3\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 5 points\nEach Hat: 1 points\nEach Ball: 1 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: the book has high value for me . so i'll take the book & you can have the rest .\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.": "<answer>\n{\n\"books\": 1,\n\"hats\": 0,\n\"balls\": 0\n}\n</answer>\n\nThe speaker gets 1 book for the first issue in the proposal. The rest of the items (hats and balls) are not mentioned in the proposal, so it is not clear how many of those the speaker would get.",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 3\nBalls: 1\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 3 points\nEach Hat: 1 points\nEach Ball: 4 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nYOU: i can offer 2 hats\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.": "<answer>\n{\n\"books\": 0,\n\"hats\": 2,\n\"balls\": 0\n}\n</answer>",
+        "Task Description: You are negotiating with a partner over some quantity of books, hats, and balls to determine who gets which items. Different types of items are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of books, hats, and balls available in the negotiation, contained in <count> tags.\n<count>\nBooks: 1\nHats: 3\nBalls: 1\n</count>\n\nHere are the number of points you get for each type of item, contained in <value> tags.\n<value>\nEach Book: 2 points\nEach Hat: 2 points\nEach Ball: 2 points\n</value>\n\nHere is an utterance from the negotiation, contained in <utterance> tags.\n<utterance>\nTHEM: yeah that wont work for me . how about i get 2 hats and the book and you can have the ball and 1 hat\n</utterance>\n\nQuestion: How many items does the speaker get for each issue in the proposal delimited by the <utterance> tags? Present your answer as a json within <answer> </answer> tags with keys as issues (books, hats, and balls) and values as the corresponding answers. If the answer is not clear for an issue, pick your best guess.": "<answer>\n{\n\"books\": 1,\n\"hats\": 2,\n\"balls\": 1\n}\n</answer>"
+    }
+}

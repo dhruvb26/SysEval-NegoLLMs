@@ -1,0 +1,87 @@
+{
+    "stats": {
+        "total": 120,
+        "unique": 6,
+        "valid": 6
+    },
+    "ground truth": [
+        {
+            "food": "3",
+            "firewood": "4",
+            "water": "5"
+        },
+        {
+            "firewood": "3",
+            "food": "4",
+            "water": "5"
+        },
+        {
+            "firewood": "3",
+            "water": "4",
+            "food": "5"
+        },
+        {
+            "water": "3",
+            "food": "4",
+            "firewood": "5"
+        },
+        {
+            "food": "3",
+            "water": "4",
+            "firewood": "5"
+        },
+        {
+            "water": "3",
+            "firewood": "4",
+            "food": "5"
+        }
+    ],
+    "predictions": [
+        {
+            "food": "3",
+            "water": "5",
+            "firewood": "4"
+        },
+        {
+            "food": "4",
+            "water": "5",
+            "firewood": "3"
+        },
+        {
+            "food": "5",
+            "water": "4",
+            "firewood": "3"
+        },
+        {
+            "food": "4",
+            "water": "3",
+            "firewood": "5"
+        },
+        {
+            "food": "3",
+            "water": "4",
+            "firewood": "5"
+        },
+        {
+            "food": "5",
+            "water": "3",
+            "firewood": "4"
+        }
+    ],
+    "prompts": [
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 3 points\nEach Water Package: 5 points\nEach Firewood Package: 4 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers.",
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 4 points\nEach Water Package: 5 points\nEach Firewood Package: 3 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers.",
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 5 points\nEach Water Package: 4 points\nEach Firewood Package: 3 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers.",
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 4 points\nEach Water Package: 3 points\nEach Firewood Package: 5 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers.",
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 3 points\nEach Water Package: 4 points\nEach Firewood Package: 5 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers.",
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 5 points\nEach Water Package: 3 points\nEach Firewood Package: 4 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers."
+    ],
+    "outputs_dict": {
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 3 points\nEach Water Package: 5 points\nEach Firewood Package: 4 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers.": "<answer>\n{\n  \"food\": 3,\n  \"water\": 5,\n  \"firewood\": 4\n}\n</answer>",
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 4 points\nEach Water Package: 5 points\nEach Firewood Package: 3 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers.": "<answer>\n{\n  \"food\": 4,\n  \"water\": 5,\n  \"firewood\": 3\n}\n</answer>",
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 5 points\nEach Water Package: 4 points\nEach Firewood Package: 3 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers.": "<answer>\n{\n  \"food\": 5,\n  \"water\": 4,\n  \"firewood\": 3\n}\n</answer>",
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 4 points\nEach Water Package: 3 points\nEach Firewood Package: 5 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers.": "<answer>\n{\n  \"food\": 4,\n  \"water\": 3,\n  \"firewood\": 5\n}\n</answer>",
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 3 points\nEach Water Package: 4 points\nEach Firewood Package: 5 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers.": "<answer>\n{\n  \"food\": 3,\n  \"water\": 4,\n  \"firewood\": 5\n}\n</answer>",
+        "Task Description: You are negotiating with your campsite neighbor over extra supply of food, water, and firewood for your camping trip. Different types of packages are worth different amount of points to each one of you. You'll be provided with information about the negotiation. Then, you'll answer a question.\n\nHere are the number of food, water, and firewood packages available in the negotiation, contained in <count> tags.\n<count>\nFood Packages: 3\nWater Packages: 3\nFirewood Packages: 3\n</count>\n\nHere are the number of points you get for each type of package, contained in <value> tags.\n<value>\nEach Food Package: 5 points\nEach Water Package: 3 points\nEach Firewood Package: 4 points\n</value>\n\nQuestion: How many points is one package of each issue worth to you? Present your answer as a json within <answer> </answer> tags with keys as issues (food, water, and firewood) and values as the corresponding answers.": "<answer>\n{\n  \"food\": 5,\n  \"water\": 3,\n  \"firewood\": 4\n}\n</answer>"
+    }
+}
